@@ -1,7 +1,7 @@
 package miit.chuice.tour.dao;
 
 
-import miit.chuice.tour.MakeHibernateSession;
+import miit.chuice.tour.CreateHibernateSession;
 import miit.chuice.tour.models.Human;
 
 import org.hibernate.Session;
@@ -12,9 +12,8 @@ public class PersonDAO {
 
     private final static Logger logger = LoggerFactory.getLogger(PersonDAO.class.getSimpleName());
 
-    public Human show(String login) {
-
-        Session session = MakeHibernateSession.getSessionFactory(PersonDAO.class).getCurrentSession();
+    public static Human show(String login) {
+        Session session = CreateHibernateSession.getSessionFactory(Human.class).getCurrentSession();
         session.beginTransaction();
         Human human = session
                 .createQuery("FROM Human WHERE login = :login", Human.class)
@@ -25,6 +24,13 @@ public class PersonDAO {
         session.getTransaction().commit();
 
         return human;
+    }
+
+    public static void save(Human human) {
+        Session session = CreateHibernateSession.getSessionFactory(Human.class).getCurrentSession();
+        session.beginTransaction();
+        session.persist(human);
+        session.getTransaction().commit();
     }
 
 }

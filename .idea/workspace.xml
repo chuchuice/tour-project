@@ -5,33 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/MakeHibernateSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dto/RoomDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/exceptions/BadCredentialsError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/exceptions/EmptyCredentialsError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/CreateHibernateSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/entities.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/MakeHibernateSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dto/RoomDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dto/RoomDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +46,10 @@
   <component name="JvmLoggingSettingsStorage">
     <option name="loggerId" value="Lombok Slf4j" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -69,7 +68,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/akidr/Downloads/jBCrypt-0.4.zip",
@@ -78,10 +80,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -93,6 +100,40 @@
       <recent name="C:\Users\akidr\Desktop\miit\tour\src\main\java\miit\chuice\tour\bcrypt" />
       <recent name="C:\Users\akidr\Desktop\miit\tour\src\main\resources" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.HelloApplication" />
+      <module name="tour" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="miit.chuice.tour.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.Test" />
+      <module name="tour" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="miit.chuice.tour.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -113,10 +154,21 @@
       <workItem from="1730984882786" duration="7000" />
       <workItem from="1731006748024" duration="876000" />
       <workItem from="1731007640516" duration="10224000" />
+      <workItem from="1731019552495" duration="5517000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import miit.chuice.tour.security.SignUp;
+import miit.chuice.tour.utils.SecurityUtils;
 import miit.chuice.tour.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,16 +29,17 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loginButton.setOnAction(new EventHandler<ActionEvent>() {
+        signUpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (!login.getText().trim().isEmpty() &&!password.getText().trim().isEmpty()){
+                if (!name.getText().trim().isEmpty() && !login.getText().trim().isEmpty() && !password.getText().trim().isEmpty()){
                     SignUp.signUp(event, name.getText(), login.getText(), password.getText());
                 } else{
                     logger.error("Не указана вся информация для регистрации");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Вы не указали всю информацию для регистрации :(");
                     alert.show();
+                    SecurityUtils.isPasswordAndLoginCorrect(password.getText(), login.getText());
                 }
             }
         });
@@ -45,7 +47,7 @@ public class SignUpController implements Initializable {
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Utils.changeScene(event, "/miit/chuice/tour/login.fxml", null, null, null);
+                Utils.changeScene(event, "/miit/chuice/tour/views/login.fxml", null, null, null);
             }
         });
     }

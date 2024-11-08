@@ -322,4 +322,7 @@ public class BCrypt {
 			ret |= (byte) (hashed_bytes[i] ^ try_bytes[i]);
 		return ret == 0;
 	}
+	public static String hash(String password) {
+		return hashpw(password, BCrypt.gensalt());
+	}
 }

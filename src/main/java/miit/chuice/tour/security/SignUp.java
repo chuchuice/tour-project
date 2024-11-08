@@ -2,13 +2,16 @@ package miit.chuice.tour.security;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import miit.chuice.tour.MakeHibernateSession;
+import miit.chuice.tour.CreateHibernateSession;
+import miit.chuice.tour.bcrypt.BCrypt;
 import miit.chuice.tour.dao.PersonDAO;
 import miit.chuice.tour.models.Human;
 import miit.chuice.tour.utils.SecurityUtils;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static miit.chuice.tour.utils.Utils.changeScene;
 
 public class SignUp {
 
@@ -18,13 +21,10 @@ public class SignUp {
 
         SecurityUtils.isPasswordAndLoginCorrect(login, password);
 
-        Session session = MakeHibernateSession.getSessionFactory(SignUp.class).getCurrentSession();
-
+        Session session = CreateHibernateSession.getSessionFactory(Human.class).getCurrentSession();
         session.beginTransaction();
 
-        PersonDAO dao = new PersonDAO();
-
-        Human human = dao.show(login);
+        Human human = PersonDAO.show(login);
 
         if (human == null) {
             logger.error("Пользователь пытается зарегистрироваться, но человек с таким логином уже существует");
@@ -32,12 +32,11 @@ public class SignUp {
             alert.setContentText("Пользователь с таким логином уже существует");
             alert.show();
         } else {
-            Human newHuman = new Human();
-
-            dao.save(newHuman);
+            PersonDAO.save(new Human(name, login, BCrypt.hash(password)));
         }
 
         session.getTransaction().commit();
+        changeScene(event, "/miit/chuice/tour/login.fxml", null, null, null);
     }
 
 }

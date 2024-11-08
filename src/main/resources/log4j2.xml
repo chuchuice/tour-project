@@ -4,14 +4,31 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%style{%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n}"/>
         </Console>
-        <File name="File" fileName="logs/app.log">
+        <File name="UserActions" fileName="logs/user_actions.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="ProgramActivity" fileName="logs/program_activity.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <File name="FrameworkErrors" fileName="logs/framework_errors.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
+        <Logger name="miit.chuice.tour" level="INFO">
+            <AppenderRef ref="UserActions"/>
+        </Logger>
+        <Logger name="miit.chuice.tour" level="ERROR">
+            <AppenderRef ref="UserActions"/>
+        </Logger>
+        <Logger name="miit.chuice.tour" level="DEBUG">
+            <AppenderRef ref="ProgramActivity"/>
+        </Logger>
+        <Logger name="org.hibernate" level="ERROR">
+            <AppenderRef ref="FrameworkErrors"/>
+        </Logger>
         <Root level="DEBUG">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
         </Root>
     </Loggers>
 </Configuration>
