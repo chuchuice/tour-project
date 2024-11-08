@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import miit.chuice.tour.dao.PersonDAO;
 import miit.chuice.tour.security.SignUp;
 import miit.chuice.tour.utils.SecurityUtils;
 import miit.chuice.tour.utils.Utils;
@@ -32,15 +33,8 @@ public class SignUpController implements Initializable {
         signUpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (!name.getText().trim().isEmpty() && !login.getText().trim().isEmpty() && !password.getText().trim().isEmpty()){
-                    SignUp.signUp(event, name.getText(), login.getText(), password.getText());
-                } else{
-                    logger.error("Не указана вся информация для регистрации");
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Вы не указали всю информацию для регистрации :(");
-                    alert.show();
-                    SecurityUtils.isPasswordAndLoginCorrect(password.getText(), login.getText());
-                }
+                if (SecurityUtils.isPasswordAndLoginAndNameCorrect(name.getText(), login.getText(), password.getText()))
+                    new SignUp(new PersonDAO()).signUp(event, name.getText(), login.getText(), password.getText());
             }
         });
 

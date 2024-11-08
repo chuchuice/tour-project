@@ -8,15 +8,15 @@ import static miit.chuice.tour.bcrypt.BCryptData.*;
 
 public class BCrypt {
 
-	private static final int GENSALT_DEFAULT_LOG2_ROUNDS = 10;
+	private static final int GENERATE_SALT_DEFAULT_LOG2_ROUNDS = 10;
 	private static final int BCRYPT_SALT_LEN = 16;
 
 	private static final int BLOWFISH_NUM_ROUNDS = 16;
 
-	private int P[];
-	private int S[];
+	private int[] P;
+	private int[] S;
 
-	private static String encode_base64(byte d[], int len)
+	private static String encodeBase64(byte d[], int len)
 		throws IllegalArgumentException {
 		int off = 0;
 		StringBuffer rs = new StringBuffer();
@@ -27,35 +27,35 @@ public class BCrypt {
 
 		while (off < len) {
 			c1 = d[off++] & 0xff;
-			rs.append(base64_code[(c1 >> 2) & 0x3f]);
+			rs.append(BASE_64_CODE[(c1 >> 2) & 0x3f]);
 			c1 = (c1 & 0x03) << 4;
 			if (off >= len) {
-				rs.append(base64_code[c1 & 0x3f]);
+				rs.append(BASE_64_CODE[c1 & 0x3f]);
 				break;
 			}
 			c2 = d[off++] & 0xff;
 			c1 |= (c2 >> 4) & 0x0f;
-			rs.append(base64_code[c1 & 0x3f]);
+			rs.append(BASE_64_CODE[c1 & 0x3f]);
 			c1 = (c2 & 0x0f) << 2;
 			if (off >= len) {
-				rs.append(base64_code[c1 & 0x3f]);
+				rs.append(BASE_64_CODE[c1 & 0x3f]);
 				break;
 			}
 			c2 = d[off++] & 0xff;
 			c1 |= (c2 >> 6) & 0x03;
-			rs.append(base64_code[c1 & 0x3f]);
-			rs.append(base64_code[c2 & 0x3f]);
+			rs.append(BASE_64_CODE[c1 & 0x3f]);
+			rs.append(BASE_64_CODE[c2 & 0x3f]);
 		}
 		return rs.toString();
 	}
 
 	private static byte char64(char x) {
-		if ((int)x < 0 || (int)x > index_64.length)
+		if ((int) x > INDEX_64.length)
 			return -1;
-		return index_64[(int)x];
+		return INDEX_64[(int)x];
 	}
 
-	private static byte[] decode_base64(String s, int maxolen)
+	private static byte[] decodeBase64(String s, int maxolen)
 		throws IllegalArgumentException {
 		StringBuffer rs = new StringBuffer();
 		int off = 0, slen = s.length(), olen = 0;
@@ -71,7 +71,7 @@ public class BCrypt {
 			if (c1 == -1 || c2 == -1)
 				break;
 			o = (byte)(c1 << 2);
-			o |= (c2 & 0x30) >> 4;
+			o |= (byte) ((c2 & 0x30) >> 4);
 			rs.append((char)o);
 			if (++olen >= maxolen || off >= slen)
 				break;
@@ -79,7 +79,7 @@ public class BCrypt {
 			if (c3 == -1)
 				break;
 			o = (byte)((c2 & 0x0f) << 4);
-			o |= (c3 & 0x3c) >> 2;
+			o |= (byte) ((c3 & 0x3c) >> 2);
 			rs.append((char)o);
 			if (++olen >= maxolen || off >= slen)
 				break;
@@ -96,12 +96,11 @@ public class BCrypt {
 		return ret;
 	}
 
-	private final void encipher(int lr[], int off) {
+	private void encipher(int lr[], int off) {
 		int i, n, l = lr[off], r = lr[off + 1];
 
 		l ^= P[0];
 		for (i = 0; i <= BLOWFISH_NUM_ROUNDS - 2;) {
-			// Feistel substitution on left word
 			n = S[(l >> 24) & 0xff];
 			n += S[0x100 | ((l >> 16) & 0xff)];
 			n ^= S[0x200 | ((l >> 8) & 0xff)];
@@ -119,7 +118,7 @@ public class BCrypt {
 		lr[off + 1] = l;
 	}
 
-	private static int streamtoword(byte data[], int offp[]) {
+	private static int streamToWord(byte data[], int offp[]) {
 		int i;
 		int word = 0;
 		int off = offp[0];
@@ -133,22 +132,19 @@ public class BCrypt {
 		return word;
 	}
 
-	/**
-	 * Initialise the Blowfish key schedule
-	 */
-	private void init_key() {
-		P = P_orig.clone();
-		S = S_orig.clone();
+	private void initialiseKey() {
+		P = P_ORIG.clone();
+		S = S_ORIG.clone();
 	}
 
 	private void key(byte key[]) {
 		int i;
-		int koffp[] = { 0 };
-		int lr[] = { 0, 0 };
+		int[] koffp = { 0 };
+		int[] lr = { 0, 0 };
 		int plen = P.length, slen = S.length;
 
 		for (i = 0; i < plen; i++)
-			P[i] = P[i] ^ streamtoword(key, koffp);
+			P[i] = P[i] ^ streamToWord(key, koffp);
 
 		for (i = 0; i < plen; i += 2) {
 			encipher(lr, 0);
@@ -163,37 +159,37 @@ public class BCrypt {
 		}
 	}
 
-	private void ekskey(byte data[], byte key[]) {
+	private void eksKey(byte data[], byte key[]) {
 		int i;
 		int koffp[] = { 0 }, doffp[] = { 0 };
 		int lr[] = { 0, 0 };
 		int plen = P.length, slen = S.length;
 
 		for (i = 0; i < plen; i++)
-			P[i] = P[i] ^ streamtoword(key, koffp);
+			P[i] = P[i] ^ streamToWord(key, koffp);
 
 		for (i = 0; i < plen; i += 2) {
-			lr[0] ^= streamtoword(data, doffp);
-			lr[1] ^= streamtoword(data, doffp);
+			lr[0] ^= streamToWord(data, doffp);
+			lr[1] ^= streamToWord(data, doffp);
 			encipher(lr, 0);
 			P[i] = lr[0];
 			P[i + 1] = lr[1];
 		}
 
 		for (i = 0; i < slen; i += 2) {
-			lr[0] ^= streamtoword(data, doffp);
-			lr[1] ^= streamtoword(data, doffp);
+			lr[0] ^= streamToWord(data, doffp);
+			lr[1] ^= streamToWord(data, doffp);
 			encipher(lr, 0);
 			S[i] = lr[0];
 			S[i + 1] = lr[1];
 		}
 	}
 
-	public byte[] crypt_raw(byte password[], byte salt[], int log_rounds,
-	    int cdata[]) {
+	public byte[] cryptRaw(byte[] password, byte[] salt, int log_rounds,
+                           int[] cdata) {
 		int rounds, i, j;
 		int clen = cdata.length;
-		byte ret[];
+		byte[] ret;
 
 		if (log_rounds < 4 || log_rounds > 30)
 			throw new IllegalArgumentException ("Bad number of rounds");
@@ -201,8 +197,8 @@ public class BCrypt {
 		if (salt.length != BCRYPT_SALT_LEN)
 			throw new IllegalArgumentException ("Bad salt length");
 
-		init_key();
-		ekskey(salt, password);
+		initialiseKey();
+		eksKey(salt, password);
 		for (i = 0; i != rounds; i++) {
 			key(password);
 			key(salt);
@@ -223,7 +219,7 @@ public class BCrypt {
 		return ret;
 	}
 
-	public static String hashpw(String password, String salt) {
+	public static String hashPassword(String password, String salt) {
 		BCrypt B;
 		String real_salt;
 		byte passwordb[], saltb[], hashed[];
@@ -242,7 +238,6 @@ public class BCrypt {
 			off = 4;
 		}
 
-		// Extract number of rounds
 		if (salt.charAt(off + 2) > '$')
 			throw new IllegalArgumentException ("Missing salt rounds");
 		rounds = Integer.parseInt(salt.substring(off, off + 2));
@@ -254,11 +249,11 @@ public class BCrypt {
 			throw new AssertionError("UTF-8 is not supported");
 		}
 
-		saltb = decode_base64(real_salt, BCRYPT_SALT_LEN);
+		saltb = decodeBase64(real_salt, BCRYPT_SALT_LEN);
 
 		B = new BCrypt();
-		hashed = B.crypt_raw(passwordb, saltb, rounds,
-		    bf_crypt_ciphertext.clone());
+		hashed = B.cryptRaw(passwordb, saltb, rounds,
+		    BF_CRYPT_CIPHER_TEXT.clone());
 
 		rs.append("$2");
 		if (minor >= 'a')
@@ -270,15 +265,15 @@ public class BCrypt {
 			throw new IllegalArgumentException(
 			    "rounds exceeds maximum (30)");
 		}
-		rs.append(Integer.toString(rounds));
+		rs.append(rounds);
 		rs.append("$");
-		rs.append(encode_base64(saltb, saltb.length));
-		rs.append(encode_base64(hashed,
-		    bf_crypt_ciphertext.length * 4 - 1));
+		rs.append(encodeBase64(saltb, saltb.length));
+		rs.append(encodeBase64(hashed,
+		    BF_CRYPT_CIPHER_TEXT.length * 4 - 1));
 		return rs.toString();
 	}
 
-	public static String gensalt(int log_rounds, SecureRandom random) {
+	public static String generateSalt(int log_rounds, SecureRandom random) {
 		StringBuffer rs = new StringBuffer();
 		byte rnd[] = new byte[BCRYPT_SALT_LEN];
 
@@ -291,38 +286,34 @@ public class BCrypt {
 			throw new IllegalArgumentException(
 			    "log_rounds exceeds maximum (30)");
 		}
-		rs.append(Integer.toString(log_rounds));
+		rs.append(log_rounds);
 		rs.append("$");
-		rs.append(encode_base64(rnd, rnd.length));
+		rs.append(encodeBase64(rnd, rnd.length));
 		return rs.toString();
 	}
 
-	public static String gensalt(int log_rounds) {
-		return gensalt(log_rounds, new SecureRandom());
+	public static String generateSalt(int log_rounds) {
+		return generateSalt(log_rounds, new SecureRandom());
 	}
 
-	public static String gensalt() {
-		return gensalt(GENSALT_DEFAULT_LOG2_ROUNDS);
+	public static String generateSalt() {
+		return generateSalt(GENERATE_SALT_DEFAULT_LOG2_ROUNDS);
 	}
 
-	public static boolean checkpw(String plaintext, String hashed) {
+	public static boolean equals(String plaintext, String hashed) {
 		byte hashed_bytes[];
 		byte try_bytes[];
-		try {
-			String try_pw = hashpw(plaintext, hashed);
-			hashed_bytes = hashed.getBytes(StandardCharsets.UTF_8);
-			try_bytes = try_pw.getBytes("UTF-8");
-		} catch (UnsupportedEncodingException uee) {
-			return false;
-		}
-		if (hashed_bytes.length != try_bytes.length)
+        String try_pw = hashPassword(plaintext, hashed);
+        hashed_bytes = hashed.getBytes(StandardCharsets.UTF_8);
+        try_bytes = try_pw.getBytes(StandardCharsets.UTF_8);
+        if (hashed_bytes.length != try_bytes.length)
 			return false;
 		byte ret = 0;
 		for (int i = 0; i < try_bytes.length; i++)
 			ret |= (byte) (hashed_bytes[i] ^ try_bytes[i]);
 		return ret == 0;
 	}
-	public static String hash(String password) {
-		return hashpw(password, BCrypt.gensalt());
+	public static String hashPassword(String password) {
+		return hashPassword(password, BCrypt.generateSalt());
 	}
 }

@@ -16,8 +16,13 @@ import static miit.chuice.tour.utils.Utils.changeScene;
 public class SignUp {
 
     private static final Logger logger = LoggerFactory.getLogger(SignUp.class.getSimpleName());
+    private final PersonDAO personDAO;
 
-    public static void signUp(ActionEvent event, String name, String login, String password) {
+    public SignUp(PersonDAO personDAO) {
+        this.personDAO = personDAO;
+    }
+
+    public void signUp(ActionEvent event, String name, String login, String password) {
 
         SecurityUtils.isPasswordAndLoginCorrect(login, password);
 
@@ -32,7 +37,7 @@ public class SignUp {
             alert.setContentText("Пользователь с таким логином уже существует");
             alert.show();
         } else {
-            PersonDAO.save(new Human(name, login, BCrypt.hash(password)));
+            personDAO.save(new Human(name, login, BCrypt.hashPassword(password)));
         }
 
         session.getTransaction().commit();

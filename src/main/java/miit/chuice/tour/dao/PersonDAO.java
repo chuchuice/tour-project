@@ -26,7 +26,7 @@ public class PersonDAO {
         return human;
     }
 
-    public static void save(Human human) {
+    public void save(Human human) {
         Session session = CreateHibernateSession.getSessionFactory(Human.class).getCurrentSession();
         session.beginTransaction();
         session.persist(human);

@@ -34,7 +34,7 @@ public class Login {
         Role role = human.getRole();
         String pswrd = human.getPassword();
 
-        if (BCrypt.checkpw(password, pswrd)) {
+        if (BCrypt.equals(password, pswrd)) {
             switch (role) {
                 case USER -> changeScene(event, "/miit/chuice/tour/user-logged-in.fxml", "user", login, role);
                 case ADMIN -> changeScene(event, "/miit/chuice/tour/admin-logged-in.fxml", "admin", login, role);
