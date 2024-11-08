@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SPLITTER_PROPORTION" value="0.48163843" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="изменил BCrypt.java + фикс багов">
-      <change afterPath="$PROJECT_DIR$/src/test/java/miit/chuice/tour/bcrypt/BCryptTest.java" afterDir="false" />
+    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="изменил API BCrypt.java, фикс багов. +DI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Tour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/HumanRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HumanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/CreateHibernateSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/miit/chuice/tour/bcrypt/BCryptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/miit/chuice/tour/bcrypt/BCryptTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +38,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -43,6 +59,11 @@
     &quot;accountId&quot;: &quot;8086c248-e1ae-4c3f-a46e-66696459a1f3&quot;
   }
 }</component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
   <component name="JvmLoggingSettingsStorage">
     <option name="loggerId" value="Lombok Slf4j" />
   </component>
@@ -56,6 +77,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -72,8 +96,16 @@
     &quot;Application.Test.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.BCryptTest.equals.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.BCryptTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.tour [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.HelloApplication$SpringBootJavaFXApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.HelloApplication$Tour.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Tour.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -87,6 +119,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -111,26 +144,23 @@
       <recent name="miit.chuice.tour.bcrypt" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.HelloApplication$Tour">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.HelloApplication" />
       <module name="tour" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="miit.chuice.tour.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.Test" />
-      <module name="tour" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="miit.chuice.tour.*" />
+          <option name="PATTERN" value="miit.chuice.tour.repositories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,28 +183,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BCryptTest.equals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HelloApplication$Tour" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="tour" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="miit.chuice.tour.HelloApplication$Tour" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="miit.chuice.tour.bcrypt.*" />
+          <option name="PATTERN" value="miit.chuice.tour.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="miit.chuice.tour.bcrypt" />
-      <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.bcrypt.BCryptTest" />
-      <option name="METHOD_NAME" value="equals" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.HelloApplication$Tour" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.BCryptTest" />
-        <item itemvalue="JUnit.BCryptTest.equals" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +226,12 @@
       <workItem from="1731019552495" duration="6053000" />
       <workItem from="1731025874845" duration="198000" />
       <workItem from="1731050658730" duration="1725000" />
-      <workItem from="1731052414991" duration="911000" />
+      <workItem from="1731052414991" duration="1936000" />
+      <workItem from="1731054691702" duration="222000" />
+      <workItem from="1731055299040" duration="28000" />
+      <workItem from="1731062090665" duration="3284000" />
+      <workItem from="1731066782132" duration="6474000" />
+      <workItem from="1731084795507" duration="3104000" />
     </task>
     <task id="LOCAL-00001" summary="изменил BCrypt.java + фикс багов">
       <option name="closed" value="true" />
@@ -210,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731025204591</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="изменил API BCrypt.java, фикс багов. +DI">
+      <option name="closed" value="true" />
+      <created>1731053513508</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731053513508</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +268,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="изменил BCrypt.java + фикс багов" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменил BCrypt.java + фикс багов" />
+    <MESSAGE value="изменил API BCrypt.java, фикс багов. +DI" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменил API BCrypt.java, фикс багов. +DI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -237,6 +277,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

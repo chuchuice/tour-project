@@ -1,12 +1,15 @@
 package miit.chuice.tour.bcrypt;
 
+import org.springframework.stereotype.Component;
+
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
 import static miit.chuice.tour.bcrypt.BCryptData.*;
 
-public class BCrypt {
+@Component
+public class BCrypt implements BCryptAPI {
 
 	private static final int GENERATE_SALT_DEFAULT_LOG2_ROUNDS = 10;
 	private static final int BCRYPT_SALT_LEN = 16;
@@ -16,8 +19,7 @@ public class BCrypt {
 	private int[] P;
 	private int[] S;
 
-	private static String encodeBase64(byte d[], int len)
-		throws IllegalArgumentException {
+	private String encodeBase64(byte d[], int len) throws IllegalArgumentException {
 		int off = 0;
 		StringBuffer rs = new StringBuffer();
 		int c1, c2;
@@ -49,13 +51,13 @@ public class BCrypt {
 		return rs.toString();
 	}
 
-	private static byte char64(char x) {
+	private byte char64(char x) {
 		if ((int) x > INDEX_64.length)
 			return -1;
-		return INDEX_64[(int)x];
+		return INDEX_64[x];
 	}
 
-	private static byte[] decodeBase64(String s, int maxolen)
+	private byte[] decodeBase64(String s, int maxolen)
 		throws IllegalArgumentException {
 		StringBuffer rs = new StringBuffer();
 		int off = 0, slen = s.length(), olen = 0;
@@ -107,7 +109,6 @@ public class BCrypt {
 			n += S[0x300 | (l & 0xff)];
 			r ^= n ^ P[++i];
 
-			// Feistel substitution on right word
 			n = S[(r >> 24) & 0xff];
 			n += S[0x100 | ((r >> 16) & 0xff)];
 			n ^= S[0x200 | ((r >> 8) & 0xff)];
@@ -118,7 +119,7 @@ public class BCrypt {
 		lr[off + 1] = l;
 	}
 
-	private static int streamToWord(byte data[], int offp[]) {
+	private static int streamToWord(byte[] data, int[] offp) {
 		int i;
 		int word = 0;
 		int off = offp[0];
@@ -185,7 +186,7 @@ public class BCrypt {
 		}
 	}
 
-	public byte[] cryptRaw(byte[] password, byte[] salt, int log_rounds,
+	private byte[] cryptRaw(byte[] password, byte[] salt, int log_rounds,
                            int[] cdata) {
 		int rounds, i, j;
 		int clen = cdata.length;
@@ -219,12 +220,15 @@ public class BCrypt {
 		return ret;
 	}
 
-	public static String hashPassword(String password, String salt) {
+	private String hashPassword(String password, String salt) {
 		BCrypt B;
 		String real_salt;
-		byte passwordb[], saltb[], hashed[];
+		byte[] passwordb;
+		byte[] saltb;
+		byte[] hashed;
+
 		char minor = (char)0;
-		int rounds, off = 0;
+		int rounds, off;
 		StringBuffer rs = new StringBuffer();
 
 		if (salt.charAt(0) != '$' || salt.charAt(1) != '2')
@@ -273,47 +277,53 @@ public class BCrypt {
 		return rs.toString();
 	}
 
-	public static String generateSalt(int log_rounds, SecureRandom random) {
+	private String generateSalt(int logRounds, SecureRandom random) {
 		StringBuffer rs = new StringBuffer();
 		byte rnd[] = new byte[BCRYPT_SALT_LEN];
 
 		random.nextBytes(rnd);
 
 		rs.append("$2a$");
-		if (log_rounds < 10)
+		if (logRounds < 10)
 			rs.append("0");
-		if (log_rounds > 30) {
+		if (logRounds > 30) {
 			throw new IllegalArgumentException(
-			    "log_rounds exceeds maximum (30)");
+			    "logRounds exceeds maximum (30)");
 		}
-		rs.append(log_rounds);
+		rs.append(logRounds);
 		rs.append("$");
 		rs.append(encodeBase64(rnd, rnd.length));
 		return rs.toString();
 	}
 
-	public static String generateSalt(int log_rounds) {
+	private String generateSalt(int log_rounds) {
 		return generateSalt(log_rounds, new SecureRandom());
 	}
 
-	public static String generateSalt() {
+	private String generateSalt() {
 		return generateSalt(GENERATE_SALT_DEFAULT_LOG2_ROUNDS);
 	}
 
-	public static boolean equals(String plaintext, String hashed) {
-		byte hashed_bytes[];
-		byte try_bytes[];
+	public boolean equals(String plaintext, String hashed) {
+		byte[] hashedBytes;
+		byte[] tryBytes;
         String try_pw = hashPassword(plaintext, hashed);
-        hashed_bytes = hashed.getBytes(StandardCharsets.UTF_8);
-        try_bytes = try_pw.getBytes(StandardCharsets.UTF_8);
-        if (hashed_bytes.length != try_bytes.length)
+        hashedBytes = hashed.getBytes(StandardCharsets.UTF_8);
+        tryBytes = try_pw.getBytes(StandardCharsets.UTF_8);
+        if (hashedBytes.length != tryBytes.length)
 			return false;
 		byte ret = 0;
-		for (int i = 0; i < try_bytes.length; i++)
-			ret |= (byte) (hashed_bytes[i] ^ try_bytes[i]);
+		for (int i = 0; i < tryBytes.length; i++)
+			ret |= (byte) (hashedBytes[i] ^ tryBytes[i]);
 		return ret == 0;
 	}
-	public static String hashPassword(String password) {
-		return hashPassword(password, BCrypt.generateSalt());
+
+	public String hashPassword(String password) {
+		return hashPassword(password, generateSalt());
 	}
+
+	public String hashPassword(String password, int logRounds) {
+		return hashPassword(password, generateSalt(logRounds));
+	}
+
 }

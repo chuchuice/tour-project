@@ -1,19 +1,22 @@
 package miit.chuice.tour;
 
-import miit.chuice.tour.dao.PersonDAO;
 import miit.chuice.tour.models.Human;
+import miit.chuice.tour.services.HumanService;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Test {
+
+    private static HumanService humanService;
+
+    @Autowired
+    public Test(HumanService humanService) {
+        Test.humanService = humanService;
+    }
+
     public static void main(String[] args) {
-        Session session = CreateHibernateSession
-                .getSessionFactory(Human.class)
-                .getCurrentSession();
-
-        session.beginTransaction();
-
-        System.out.println(PersonDAO.show("pavel").toString());
-
-        session.getTransaction().commit();
+        System.out.println(humanService.findHumanByLogin("pavel").toString());
     }
 }
