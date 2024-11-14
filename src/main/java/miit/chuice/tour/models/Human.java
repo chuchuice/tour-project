@@ -2,15 +2,12 @@ package miit.chuice.tour.models;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-import miit.chuice.tour.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class Human {
 
@@ -20,11 +17,20 @@ public class Human {
     private Long id;
 
     @Column(name = "role")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "patronymic")
+    private String patronymic;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "login")
     private String login;
@@ -32,10 +38,20 @@ public class Human {
     @Column(name = "password")
     private String password;
 
-    public Human(String name, String login, String password) {
+    @OneToOne(mappedBy = "lodger")
+    private Room room;
+
+    public Human(String name, String surname, String patronymic, String email, String login, String password) {
         this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.email = email;
         this.login = login;
         this.password = password;
         this.role = Role.USER;
+    }
+
+    public enum Role {
+        USER, ADMIN, PORTER
     }
 }

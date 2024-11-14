@@ -1,7 +1,5 @@
 package miit.chuice.tour.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -27,28 +25,27 @@ public class LoginController implements Initializable {
     @FXML private Button signUpButton;
 
     private final Login loginLogic;
+    private final Utils utils;
 
     @Autowired
-    public LoginController(Login loginLogic) {
+    public LoginController(Login loginLogic, Utils utils) {
         this.loginLogic = loginLogic;
+        this.utils = utils;
     }
 
     @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        loginButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (SecurityUtils.isPasswordAndLoginCorrect(password.getText(), login.getText())) {
-                    loginLogic.login(event, login.getText(), password.getText());
-                }
+
+        System.out.println(loginButton);
+        System.out.println(signUpButton);
+
+        loginButton.setOnAction(event -> {
+            if (SecurityUtils.isPasswordAndLoginCorrect(password.getText(), login.getText())) {
+                loginLogic.login(event, login.getText(), password.getText());
             }
         });
 
-        signUpButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Utils.changeScene(event, "/miit/chuice/tour/views/sign-up.fxml", null, null, null);
-            }
-        });
+        signUpButton.setOnAction(event -> utils.changeScene(event, "/miit/chuice/tour/views/sign-up.fxml", "sign up"));
     }
 }

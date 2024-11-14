@@ -1,37 +1,35 @@
 package miit.chuice.tour.utils;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import miit.chuice.tour.enums.Role;
+import miit.chuice.tour.config.CustomFXMLLoader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.Objects;
-
+@Component
 public class Utils {
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, String login, Role role){
-        Parent root = null;
 
-        if (login != null && role != null){
-            try {
-                FXMLLoader loader = new FXMLLoader(Utils.class.getResource(fxmlFile));
-                root = loader.load();
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        } else {
-            try{
-                root = FXMLLoader.load(Objects.requireNonNull(Utils.class.getResource(fxmlFile)));
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    private final CustomFXMLLoader customFXMLLoader;
+
+    @Autowired
+    public Utils(CustomFXMLLoader customFXMLLoader) {
+        this.customFXMLLoader = customFXMLLoader;
     }
+
+    public void changeScene(ActionEvent event, String fxmlPath, String title) {
+        try {
+            Parent root = customFXMLLoader.load(fxmlPath);
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

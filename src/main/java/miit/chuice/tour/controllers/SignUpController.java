@@ -1,52 +1,65 @@
 package miit.chuice.tour.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import lombok.extern.slf4j.Slf4j;
 import miit.chuice.tour.security.SignUp;
 import miit.chuice.tour.utils.SecurityUtils;
 import miit.chuice.tour.utils.Utils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static miit.chuice.tour.utils.SecurityUtils.makeAlert;
+
+@Slf4j
 @Component
 public class SignUpController implements Initializable {
 
-    private static final Logger logger = LoggerFactory.getLogger(SignUpController.class.getSimpleName());
-
+    @FXML public CheckBox noPatronymic;
     @FXML private TextField name;
+    @FXML private TextField surname;
+    @FXML private TextField patronymic;
+    @FXML private TextField email;
     @FXML private TextField login;
     @FXML private PasswordField password;
+    @FXML public PasswordField repeatPassword;
     @FXML private Button loginButton;
     @FXML private Button signUpButton;
 
-    private SignUp signUp;
-
-    public SignUpController() {}
+    private final SignUp signUp;
+    private final Utils utils;
 
     @Autowired
     public SignUpController(SignUp signUp) {
         this.signUp = signUp;
+        this.utils = signUp.getUtils();
     }
 
     @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
+
+        System.out.println(loginButton);
+        System.out.println(signUpButton);
+
         signUpButton.setOnAction(event -> {
-            if (SecurityUtils.isPasswordAndLoginAndNameCorrect(name.getText(), login.getText(), password.getText()))
-                signUp.signUp(event, name.getText(), login.getText(), password.getText());
+
+            if (!password.getText().equals(repeatPassword.getText())) {
+                makeAlert("Пароль введён неверно", Alert.AlertType.ERROR);
+            }
+
+            if (SecurityUtils.isUserDataCorrect(name.getText(), surname.getText(), patronymic.getText(), email.getText(),
+                    login.getText(), password.getText(), noPatronymic.isSelected()))
+
+                signUp.signUp(event, name.getText(), surname.getText(), patronymic.getText(), email.getText(), login.getText(), password.getText());
         });
 
         loginButton.setOnAction(event ->
-                Utils.changeScene(event, "/miit/chuice/tour/views/login.fxml", null, null, null));
+                utils.changeScene(event, "/miit/chuice/tour/views/login.fxml", "login"));
     }
 
 }

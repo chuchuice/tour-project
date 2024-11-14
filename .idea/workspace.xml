@@ -7,26 +7,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="изменил API BCrypt.java, фикс багов. +DI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Tour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/HumanRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HumanService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="+spring">
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/config/CustomFXMLLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/PorterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/HotelRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/RoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/bcrypt/BCrypt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HotelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/RoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/account.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/rooms-in-hotel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/user-hotels.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/CreateHibernateSession.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/Tour.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCrypt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/bcrypt/BCryptData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/bcrypt/BCryptData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dao/PersonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/dto/RoomDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/enums/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/HumanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/HumanRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HumanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HumanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/utils/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/entities.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/entities.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/room.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/sign-up.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/miit/chuice/tour/bcrypt/BCryptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/miit/chuice/tour/bcrypt/BCryptTest.java" afterDir="false" />
     </list>
@@ -39,7 +60,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -59,6 +82,9 @@
     &quot;accountId&quot;: &quot;8086c248-e1ae-4c3f-a46e-66696459a1f3&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1-sources.jar!/module-info.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
       <scroll-view-position x="0" y="0" />
@@ -105,12 +131,14 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.HelloApplication$SpringBootJavaFXApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.HelloApplication$Tour.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Tour.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/akidr/Downloads/jBCrypt-0.4.zip&quot;,
+    &quot;last.edited.regexp&quot;: &quot;a@mail.com&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/akidr/Desktop/codehub-main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -120,6 +148,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -130,6 +159,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="miit.chuice.tour.config" />
       <recent name="miit.chuice.tour.exceptions" />
       <recent name="miit.chuice.tour.security" />
     </key>
@@ -154,20 +184,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HelloApplication$Tour">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="miit.chuice.tour.HelloApplication" />
-      <module name="tour" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="miit.chuice.tour.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.HelloApplication">
     <configuration name="BCryptTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tour" />
       <extension name="coverage">
@@ -183,9 +200,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelloApplication$Tour" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="HelloApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="tour" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="miit.chuice.tour.HelloApplication$Tour" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="miit.chuice.tour.HelloApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="miit.chuice.tour.*" />
@@ -196,10 +213,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.BCryptTest" />
+      <item itemvalue="Spring Boot.HelloApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.HelloApplication$Tour" />
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.BCryptTest" />
       </list>
     </recent_temporary>
@@ -231,7 +250,17 @@
       <workItem from="1731055299040" duration="28000" />
       <workItem from="1731062090665" duration="3284000" />
       <workItem from="1731066782132" duration="6474000" />
-      <workItem from="1731084795507" duration="3104000" />
+      <workItem from="1731084795507" duration="5227000" />
+      <workItem from="1731235167314" duration="2396000" />
+      <workItem from="1731239808109" duration="29000" />
+      <workItem from="1731270091011" duration="8478000" />
+      <workItem from="1731313403511" duration="5371000" />
+      <workItem from="1731329016208" duration="27691000" />
+      <workItem from="1731417427909" duration="943000" />
+      <workItem from="1731437869682" duration="67000" />
+      <workItem from="1731451369988" duration="11000" />
+      <workItem from="1731490688570" duration="21738000" />
+      <workItem from="1731612110153" duration="5960000" />
     </task>
     <task id="LOCAL-00001" summary="изменил BCrypt.java + фикс багов">
       <option name="closed" value="true" />
@@ -249,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731053513508</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+spring">
+      <option name="closed" value="true" />
+      <created>1731087935554</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731087935554</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +306,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="изменил BCrypt.java + фикс багов" />
     <MESSAGE value="изменил API BCrypt.java, фикс багов. +DI" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменил API BCrypt.java, фикс багов. +DI" />
+    <MESSAGE value="+spring" />
+    <option name="LAST_COMMIT_MESSAGE" value="+spring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

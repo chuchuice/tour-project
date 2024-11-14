@@ -2,18 +2,19 @@ package miit.chuice.tour.security;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import miit.chuice.tour.bcrypt.BCrypt;
-import miit.chuice.tour.bcrypt.BCryptAPI;
+import lombok.Getter;
+import miit.chuice.tour.security.bcrypt.BCrypt;
 import miit.chuice.tour.models.Human;
 import miit.chuice.tour.services.HumanService;
 import miit.chuice.tour.utils.SecurityUtils;
+import miit.chuice.tour.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import static miit.chuice.tour.utils.Utils.changeScene;
+import static miit.chuice.tour.utils.SecurityUtils.makeAlert;
+
 
 @Component
 public class SignUp {
@@ -21,19 +22,25 @@ public class SignUp {
     private static final Logger logger = LoggerFactory.getLogger(SignUp.class.getSimpleName());
 
     private final HumanService humanService;
-    private final BCryptAPI bCrypt;
+    @Getter private final Utils utils;
 
     @Autowired
-    public SignUp(HumanService humanService, @Qualifier(value = "BCrypt") BCryptAPI bCrypt) {
+    public SignUp(HumanService humanService, Utils utils) {
         this.humanService = humanService;
-        this.bCrypt = bCrypt;
+        this.utils = utils;
     }
 
-    public void signUp(ActionEvent event, String name, String login, String password) {
+    public void signUp(ActionEvent event, String name, String surname, String patronymic, String email, String login, String password) {
 
         SecurityUtils.isPasswordAndLoginCorrect(login, password);
 
-        Human human = humanService.findHumanByLogin(login);
+        Human human;
+
+        if ((human = humanService.findHumanByEmail(email)) != null) {
+            makeAlert("Пользователь с такой электронной почтой уже зарегистрирован в нашей системе", Alert.AlertType.ERROR);
+        } else {
+            human = humanService.findHumanByLogin(login);
+        }
 
         if (human != null) {
             logger.error("Пользователь пытается зарегистрироваться, но человек с таким логином уже существует");
@@ -41,10 +48,10 @@ public class SignUp {
             alert.setContentText("Пользователь с таким логином уже существует");
             alert.show();
         } else {
-            humanService.save(new Human(name, login, bCrypt.hashPassword(password)));
+            humanService.save(new Human(name, surname, patronymic, email, login, BCrypt.hashPassword(password)));
         }
 
-        changeScene(event, "/miit/chuice/tour/login.fxml", null, null, null);
+        utils.changeScene(event, "/miit/chuice/tour/views/login.fxml", "login");
     }
 
 }

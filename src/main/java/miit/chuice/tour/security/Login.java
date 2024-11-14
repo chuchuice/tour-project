@@ -2,40 +2,31 @@ package miit.chuice.tour.security;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import miit.chuice.tour.bcrypt.BCryptAPI;
-import miit.chuice.tour.enums.Role;
+import miit.chuice.tour.controllers.UserController;
+import miit.chuice.tour.security.bcrypt.BCrypt;
 import miit.chuice.tour.exceptions.NotCorrectCredentialsError;
 import miit.chuice.tour.models.Human;
 import miit.chuice.tour.services.HumanService;
 import miit.chuice.tour.utils.SecurityUtils;
+import miit.chuice.tour.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import static miit.chuice.tour.utils.Utils.changeScene;
 
 @Component
 public class Login {
 
     private final static Logger logger = LoggerFactory.getLogger(Login.class.getSimpleName());
 
-    private HumanService humanService;
-    private BCryptAPI bCrypt;
-
-    public Login() {
-
-    }
+    private final HumanService humanService;
+    private final Utils utils;
 
     @Autowired
-    public void setHumanService(HumanService humanService) {
+    public Login(HumanService humanService, Utils utils) {
         this.humanService = humanService;
-    }
-
-    @Autowired
-    public void setbCrypt(@Qualifier(value = "BCrypt") BCryptAPI bCrypt) {
-        this.bCrypt = bCrypt;
+        this.utils = utils;
     }
 
     public void login(ActionEvent event, String login, String password) {
@@ -52,14 +43,16 @@ public class Login {
             throw new NotCorrectCredentialsError("Неправильно введены данные!");
         }
 
-        Role role = human.getRole();
-        String pswrd = human.getPassword();
+        Human.Role role = human.getRole();
+        String userPassword = human.getPassword();
 
-        if (bCrypt.equals(password, pswrd)) {
+        UserController.setTheUser(human);
+
+        if (BCrypt.equals(password, userPassword)) {
             switch (role) {
-                case USER -> changeScene(event, "/miit/chuice/tour/user-logged-in.fxml", "user", login, role);
-                case ADMIN -> changeScene(event, "/miit/chuice/tour/admin-logged-in.fxml", "admin", login, role);
-                case PORTER -> changeScene(event, "/miit/chuice/tour/porter-logged-in.fxml", "porter", login, role);
+                case USER -> utils.changeScene(event, "/miit/chuice/tour/views/user-hotels.fxml", "Пользователь");
+                case ADMIN -> utils.changeScene(event, "/miit/chuice/tour/views/admin.fxml", "Администратор");
+                case PORTER -> utils.changeScene(event, "/miit/chuice/tour/views/porter.fxml", "Сотрудник отеля");
                 case null -> {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("У вас нет права пользоваться программой :(");

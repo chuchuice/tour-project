@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.BookController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../pictures/new-background.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="rooms" layoutX="14.0" layoutY="23.0" prefHeight="260.0" prefWidth="573.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="78" text="ID комнаты" />
+            <TableColumn fx:id="hotel" prefWidth="150" text="Отель" />
+            <TableColumn fx:id="number" prefWidth="106.4000244140625" text="Номер комнаты" />
+            <TableColumn fx:id="countOfBeds" minWidth="0.0" prefWidth="116.0" text="Число кроватей" />
+            <TableColumn fx:id="cost" prefWidth="121.0" text="Стоимость за сутки" />
+         </columns>
+      </TableView>
+      <TextField fx:id="room" alignment="TOP_CENTER" layoutX="14.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID комнаты">
+         <font>
+            <Font name="Microsoft JhengHei UI Light" size="12.0" />
+         </font>
+      </TextField>
+      <Button fx:id="book" contentDisplay="TEXT_ONLY" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Забронировать">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="reload" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Обновить данные">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" contentDisplay="TEXT_ONLY" layoutX="221.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="К отелям">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

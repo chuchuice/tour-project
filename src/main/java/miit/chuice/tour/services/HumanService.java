@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HumanService {
+
     private final HumanRepository humanRepository;
 
     @Autowired
@@ -16,6 +17,10 @@ public class HumanService {
 
     public Human findHumanByLogin(String login) {
         return humanRepository.findHumanByLogin(login);
+    }
+
+    public Human findHumanByEmail(String email) {
+        return humanRepository.findHumanByEmail(email);
     }
 
     public void save(Human human) {

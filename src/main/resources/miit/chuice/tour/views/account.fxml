@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.AccountController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0">
+            <image>
+                <Image url="@../pictures/new-background.jpg" />
+            </image>
+        </ImageView>
+        <TableView fx:id="rooms" layoutX="14.0" layoutY="23.0" prefHeight="260.0" prefWidth="573.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="78" text="ID комнаты" />
+                <TableColumn fx:id="hotel" prefWidth="150" text="Отель" />
+                <TableColumn fx:id="number" prefWidth="106.4000244140625" text="Номер комнаты" />
+                <TableColumn fx:id="countOfBeds" minWidth="0.0" prefWidth="116.0" text="Число кроватей" />
+                <TableColumn fx:id="status" prefWidth="121.0" text="Статус" />
+            </columns>
+        </TableView>
+        <TextField fx:id="idToCancel" alignment="TOP_CENTER" layoutX="14.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID комнаты">
+            <font>
+                <Font name="Microsoft JhengHei UI Light" size="12.0" />
+            </font>
+        </TextField>
+        <Button fx:id="cancelBook" contentDisplay="TEXT_ONLY" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Отменить бронирование">
+            <font>
+                <Font name="Microsoft YaHei UI Light" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="reload" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="297.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Обновить данные">
+            <font>
+                <Font name="Microsoft YaHei UI Light" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="back" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="326.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="К отелям">
+            <font>
+                <Font name="Microsoft YaHei UI Light" size="12.0" />
+            </font>
+        </Button>
+      <TextField fx:id="idToBuy" alignment="TOP_CENTER" layoutX="211.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID комнаты">
+         <font>
+            <Font name="Microsoft JhengHei UI Light" size="12.0" />
+         </font>
+      </TextField>
+      <Button fx:id="buy" contentDisplay="TEXT_ONLY" layoutX="211.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Оплатить">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="logout" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Выйти">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Text layoutX="24.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Чтобы оплатить номер, поле статус должно быть accept!">
+         <font>
+            <Font name="Microsoft JhengHei UI Light" size="14.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
