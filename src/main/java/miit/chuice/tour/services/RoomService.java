@@ -33,7 +33,7 @@ public class RoomService {
     }
 
     public List<Room> findRoomsWithWaitingStatus() {
-        return repository.findAllByStatusAndLodger();
+        return repository.findAllByStatus(Room.Status.WAITING);
     }
 
     public void save(Room room) {

@@ -52,7 +52,8 @@ public class Room {
         ACCEPTED,
         REJECTED,
         NOT_YET,
-        PAID
+        PAID,
+        WAITING
     }
 
 }

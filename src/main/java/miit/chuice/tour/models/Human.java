@@ -51,6 +51,11 @@ public class Human {
         this.role = Role.USER;
     }
 
+    @Override
+    public String toString() {
+        return Long.toString(id);
+    }
+
     public enum Role {
         USER, ADMIN, PORTER
     }

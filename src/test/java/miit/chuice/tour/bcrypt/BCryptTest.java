@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class BCryptTest {
-    @Test
-    void equals() {
+    @Test void equals() {
         Assertions.assertTrue(BCrypt.equals("admin", BCrypt.hashPassword("admin")));
     }
 }

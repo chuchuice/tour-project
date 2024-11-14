@@ -58,6 +58,7 @@ public class BookController implements Initializable {
                             if (room.getHotel().getId().longValue() != UserController.getTheHotel().getId().longValue()) {
                                 makeAlert("У этого отеля нет этой свободной комнаты!", Alert.AlertType.ERROR);
                             } else {
+                                room.setStatus(Room.Status.WAITING);
                                 roomService.save(room, UserController.getTheUser());
                                 utils.changeScene(event, "/miit/chuice/tour/views/user-hotels.fxml", "Забронированные комнаты");
                                 makeAlert("Вы забронировали комнату, ожидайте ответ от отеля", Alert.AlertType.INFORMATION);

@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import miit.chuice.tour.models.Human;
 import miit.chuice.tour.models.Room;
 import miit.chuice.tour.services.RoomService;
 import miit.chuice.tour.utils.Utils;
@@ -24,7 +23,6 @@ public class PorterController implements Initializable {
     @FXML private TableView<Room> info;
     @FXML private TableColumn<?, ?> status;
     @FXML private TableColumn<?, ?> userId;
-    @FXML private TableColumn<?, ?> email;
     @FXML private TableColumn<?, ?> hotel;
     @FXML private TableColumn<?, ?> id;
     @FXML private TableColumn<?, ?> number;
@@ -47,6 +45,8 @@ public class PorterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         reload();
+
+        reload.setOnAction(event -> reload());
 
         logout.setOnAction(event -> {
             UserController.setTheUser(null);
@@ -93,9 +93,8 @@ public class PorterController implements Initializable {
         info.setItems(FXCollections.observableList(roomService.findRoomsWithWaitingStatus()));
 
         this.id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        this.hotel.setCellValueFactory(new PropertyValueFactory<>("title"));
-        this.email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        this.userId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        this.hotel.setCellValueFactory(new PropertyValueFactory<>("hotel"));
+        this.userId.setCellValueFactory(new PropertyValueFactory<>("lodger"));
         this.number.setCellValueFactory(new PropertyValueFactory<>("number"));
         this.status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
