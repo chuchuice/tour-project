@@ -19,11 +19,11 @@
         <TableView fx:id="hotels" layoutX="14.0" layoutY="14.0" prefHeight="260.0" prefWidth="573.0">
             <columns>
                 <TableColumn fx:id="id" prefWidth="44.0" text="ID" />
-                <TableColumn fx:id="hotel" prefWidth="113.5999755859375" text="Отель" />
-                <TableColumn fx:id="stars" prefWidth="65.5999755859375" text="Звезды" />
-                <TableColumn fx:id="country" prefWidth="88.79998779296875" text="Страна" />
-                <TableColumn fx:id="city" prefWidth="103.20001220703125" text="Город" />
-                <TableColumn fx:id="address" prefWidth="158.39998779296877" text="Адрес" />
+                <TableColumn fx:id="hotel" prefWidth="114" text="Отель" />
+                <TableColumn fx:id="stars" prefWidth="66" text="Звезды" />
+                <TableColumn fx:id="country" prefWidth="89" text="Страна" />
+                <TableColumn fx:id="city" prefWidth="103" text="Город" />
+                <TableColumn fx:id="address" prefWidth="158" text="Адрес" />
             </columns>
         </TableView>
         <TextField fx:id="idToRooms" alignment="TOP_CENTER" layoutX="14.0" layoutY="296.0" prefHeight="23.0" prefWidth="178.0" promptText="ID отеля">
@@ -51,5 +51,10 @@
             <Font name="Microsoft JhengHei UI Light" size="12.0" />
          </font>
       </TextField>
+      <Button fx:id="addHotel" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Добавить отель">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

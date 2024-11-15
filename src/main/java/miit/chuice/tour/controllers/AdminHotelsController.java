@@ -4,8 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lombok.extern.slf4j.Slf4j;
 import miit.chuice.tour.models.Hotel;
-import miit.chuice.tour.repositories.HotelRepository;
 import miit.chuice.tour.services.HotelService;
 import miit.chuice.tour.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 
 import static miit.chuice.tour.utils.SecurityUtils.makeAlert;
 
+@Slf4j
 @Component
 public class AdminHotelsController implements Initializable {
 
@@ -31,6 +32,7 @@ public class AdminHotelsController implements Initializable {
     @FXML private Button reload;
     @FXML private Button findRooms;
     @FXML private Button delete;
+    @FXML public Button addHotel;
 
     private final HotelService hotelService;
     private final Utils utils;
@@ -41,15 +43,17 @@ public class AdminHotelsController implements Initializable {
         this.utils = utils;
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         reload();
 
         reload.setOnAction(event -> reload());
 
+        addHotel.setOnAction(event -> utils.changeScene(event, "/miit/chuice/tour/views/admin.fxml", "Администратор"));
+
         findRooms.setOnAction(event -> {
             if (idToRooms.getText().isEmpty()) {
+                log.info("Не указано id отеля");
                 makeAlert("Вы не указали id отеля", Alert.AlertType.ERROR);
             } else {
                 Hotel findedHotel = hotelService.find(Long.parseLong(idToRooms.getText()));
