@@ -36,6 +36,10 @@ public class RoomService {
         return repository.findAllByStatus(Room.Status.WAITING);
     }
 
+    public List<Room> findAllByHotelId(long id) {
+        return repository.findAllByHotelId(id);
+    }
+
     public void save(Room room) {
         repository.save(room);
     }
@@ -43,5 +47,9 @@ public class RoomService {
     public void save(Room room, Human human) {
         room.setLodger(human);
         repository.save(room);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

@@ -3,10 +3,6 @@ package miit.chuice.tour.security.bcrypt;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
-/**
- * Реализация BCrypt хеширования паролей.
- * @author Damien Miller, Pavel Zuev
- */
 public class BCrypt extends BCryptData {
 
 	private static int[] permutation;

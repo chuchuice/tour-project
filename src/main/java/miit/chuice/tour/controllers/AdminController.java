@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static miit.chuice.tour.utils.SecurityUtils.makeAlert;
@@ -28,24 +27,17 @@ public class AdminController implements Initializable {
     @FXML private TextField city;
     @FXML private TextField address;
 
-    @FXML private TextField hotelTitle;
-    @FXML private TextField number;
-    @FXML private TextField countOfBeds;
-    @FXML private TextField cost;
-
     @FXML private Button addHotel;
-    @FXML private Button addRoom;
+    @FXML private Button other;
     @FXML private Button logout;
 
     private final Utils utils;
     private final HotelService hotelService;
-    private final RoomService roomService;
 
     @Autowired
     public AdminController(Utils utils, HotelService hotelService, RoomService roomService) {
         this.utils = utils;
         this.hotelService = hotelService;
-        this.roomService = roomService;
     }
 
     @Override
@@ -67,22 +59,7 @@ public class AdminController implements Initializable {
             }
         });
 
-        addRoom.setOnAction(event -> {
-            if (hotelTitle.getText().isBlank() || number.getText().isBlank() || countOfBeds.getText().isBlank()
-                    || cost.getText().isBlank()) {
-                makeAlert("Введите все данные для добавления комнаты!", Alert.AlertType.ERROR);
-            } else {
-                List<Hotel> hotels = hotelService.findByTitle(hotelTitle.getText());
-                if (hotels.isEmpty()) {
-                    makeAlert("Отеля с таким названием нет в нашей базе данных", Alert.AlertType.ERROR);
-                } else {
-                    roomService.save(new Room(hotels.getFirst(), Integer.parseInt(number.getText()),
-                            Integer.parseInt(countOfBeds.getText()), Integer.parseInt(cost.getText())));
-
-                    makeAlert("Комната успешно добавлена", Alert.AlertType.INFORMATION);
-                }
-            }
-        });
+        other.setOnAction(event -> utils.changeScene(event, "/miit/chuice/tour/views/admin-hotels.fxml", "Отели"));
 
     }
 }

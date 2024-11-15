@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.List;
-import java.util.Optional;
 
 import miit.chuice.tour.models.Hotel;
 import miit.chuice.tour.repositories.HotelRepository;
@@ -36,5 +35,9 @@ public class HotelService {
 
     public void save(Hotel hotel) {
         repository.save(hotel);
+    }
+
+    public void delete(Hotel hotel) {
+        repository.delete(hotel);
     }
 }

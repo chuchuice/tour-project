@@ -8,13 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="pupupu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminAddRoomСontroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminHotelsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminRoomsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin-add-room.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin-hotels.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin-rooms.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/PorterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/PorterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/bcrypt/BCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/security/bcrypt/BCrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/HotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +33,8 @@
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -81,47 +87,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BCryptTest.equals.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BCryptTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.tour [clean].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.HelloApplication$SpringBootJavaFXApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.HelloApplication$Tour.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.Tour.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;a@mail.com&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/akidr/Desktop/codehub-main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Test.executor": "Run",
+    "JUnit.BCryptTest.equals.executor": "Run",
+    "JUnit.BCryptTest.executor": "Run",
+    "Maven.tour [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.HelloApplication$SpringBootJavaFXApplication.executor": "Run",
+    "Spring Boot.HelloApplication$Tour.executor": "Run",
+    "Spring Boot.HelloApplication.executor": "Run",
+    "Spring Boot.Tour.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last.edited.regexp": "a@mail.com",
+    "last_opened_file_path": "C:/Users/akidr/Desktop/codehub-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="miit.chuice.tour.config" />
