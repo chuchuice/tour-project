@@ -35,7 +35,7 @@ public class AdminController implements Initializable {
     private final HotelService hotelService;
 
     @Autowired
-    public AdminController(Utils utils, HotelService hotelService, RoomService roomService) {
+    public AdminController(Utils utils, HotelService hotelService) {
         this.utils = utils;
         this.hotelService = hotelService;
     }
