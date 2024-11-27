@@ -3,6 +3,7 @@ package miit.chuice.tour.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 
 @Setter
 @Getter
@@ -15,7 +16,7 @@ public class Room {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 

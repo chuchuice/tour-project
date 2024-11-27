@@ -3,14 +3,25 @@
   <component name="AnalysisUIOptions">
     <option name="SPLITTER_PROPORTION" value="0.48163843" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="tour:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="done">
+    <list default="true" id="a43fc638-c495-4e15-b8e1-30daa00ced63" name="Changes" comment="add some functionality in AdminHotelsController.java">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tour_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin-hotels.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/admin-hotels.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/controllers/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/models/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miit/chuice/tour/services/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/entities.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/entities.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/rooms-in-hotel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/miit/chuice/tour/views/rooms-in-hotel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +36,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -43,8 +55,14 @@
     &quot;accountId&quot;: &quot;8086c248-e1ae-4c3f-a46e-66696459a1f3&quot;
   }
 }</component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1-sources.jar!/module-info.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
@@ -89,6 +107,8 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.HelloApplication$SpringBootJavaFXApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.HelloApplication$Tour.executor&quot;: &quot;Run&quot;,
@@ -97,6 +117,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last.edited.regexp&quot;: &quot;a@mail.com&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/akidr/Desktop/codehub-main&quot;,
@@ -105,7 +126,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
@@ -120,6 +141,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="miit.chuice.tour.models" />
       <recent name="miit.chuice.tour.config" />
       <recent name="miit.chuice.tour.exceptions" />
       <recent name="miit.chuice.tour.security" />
@@ -187,8 +209,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -224,7 +246,14 @@
       <workItem from="1731612110153" duration="8470000" />
       <workItem from="1731660218185" duration="895000" />
       <workItem from="1731662801266" duration="208000" />
-      <workItem from="1731668056312" duration="367000" />
+      <workItem from="1731668056312" duration="871000" />
+      <workItem from="1731668999083" duration="2618000" />
+      <workItem from="1731672901057" duration="1663000" />
+      <workItem from="1732099144808" duration="2929000" />
+      <workItem from="1732102242871" duration="1093000" />
+      <workItem from="1732103355970" duration="43000" />
+      <workItem from="1732105208631" duration="1117000" />
+      <workItem from="1732729663977" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="изменил BCrypt.java + фикс багов">
       <option name="closed" value="true" />
@@ -274,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731630044787</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add some functionality in AdminHotelsController.java">
+      <option name="closed" value="true" />
+      <created>1731668791978</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731668791978</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +334,12 @@
     <MESSAGE value="+spring" />
     <MESSAGE value="pupupu" />
     <MESSAGE value="done" />
-    <option name="LAST_COMMIT_MESSAGE" value="done" />
+    <MESSAGE value="add some functionality in AdminHotelsController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some functionality in AdminHotelsController.java" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

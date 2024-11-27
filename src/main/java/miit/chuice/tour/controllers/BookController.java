@@ -23,6 +23,7 @@ public class BookController implements Initializable {
     @FXML private TableColumn<?, ?> id;
     @FXML private TableColumn<?, ?> number;
     @FXML private TableColumn<?, ?> cost;
+    @FXML private TableColumn<?, ?> available;
     @FXML private TableView<Room> rooms;
     @FXML private TextField room;
     @FXML private Button back;

@@ -32,8 +32,7 @@ public class Hotel {
     @Column(name = "address")
     private String address;
 
-    //TODO Убрать EAGER загрузку
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
     private List<Room> rooms;
 
     public Hotel(String title, int stars, String country, String city, String address) {

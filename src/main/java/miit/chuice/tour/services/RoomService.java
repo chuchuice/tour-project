@@ -24,6 +24,10 @@ public class RoomService {
         return FXCollections.observableList(repository.findAllByHotelIdAndLodgerIdIsNull(hotelId));
     }
 
+    public ObservableList<Room> findAllRoomsByHotelId(long hotelId) {
+        return FXCollections.observableList(findAllByHotelId(hotelId));
+    }
+
     public List<Room> findAllRoomsByLodgerId(long lodgerId) {
         return repository.findAllByLodgerId(lodgerId);
     }
@@ -33,7 +37,7 @@ public class RoomService {
     }
 
     public List<Room> findRoomsWithWaitingStatus() {
-        return repository.findAllByStatus(Room.Status.WAITING);
+        return repository.findAllByStatusAndLodgerIdIsNotNull(Room.Status.WAITING);
     }
 
     public List<Room> findAllByHotelId(long id) {
