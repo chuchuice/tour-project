@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.BookController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.user.BookController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
@@ -27,26 +27,32 @@
             <TableColumn fx:id="available" prefWidth="123" text="Свободность?" />
          </columns>
       </TableView>
-      <TextField fx:id="room" alignment="TOP_CENTER" layoutX="14.0" layoutY="291.0" prefHeight="23.0" prefWidth="178.0" promptText="ID комнаты">
+      <TextField fx:id="room" alignment="TOP_CENTER" layoutX="211.0" layoutY="302.0" prefHeight="26.0" prefWidth="178.0" promptText="ID комнаты">
          <font>
             <Font name="Microsoft JhengHei UI Light" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="book" contentDisplay="TEXT_ONLY" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Забронировать">
+      <Button fx:id="book" contentDisplay="TEXT_ONLY" layoutX="212.0" layoutY="339.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Забронировать">
          <font>
             <Font name="Microsoft YaHei UI Light" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="reload" contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Обновить данные">
+      <Button fx:id="reload" contentDisplay="TEXT_ONLY" layoutX="419.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Обновить данные">
          <font>
             <Font name="Microsoft YaHei UI Light" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="back" contentDisplay="TEXT_ONLY" layoutX="221.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="К отелям">
+      <Button fx:id="back" contentDisplay="TEXT_ONLY" layoutX="419.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="К отелям">
          <font>
             <Font name="Microsoft YaHei UI Light" size="12.0" />
          </font>
       </Button>
-      <DatePicker fx:id="date" layoutX="15.0" layoutY="321.0" prefHeight="26.0" prefWidth="178.0" promptText="            Выберите дату" />
+      <DatePicker fx:id="in" layoutX="20.0" layoutY="302.0" prefHeight="26.0" prefWidth="82.0" promptText="Заезд" />
+      <DatePicker fx:id="out" layoutX="115.0" layoutY="301.0" prefHeight="26.0" prefWidth="82.0" promptText="Выезд" />
+      <Button fx:id="search" contentDisplay="TEXT_ONLY" layoutX="20.0" layoutY="339.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" text="Поиск свободных номеров">
+         <font>
+            <Font name="Microsoft YaHei UI Light" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -2,7 +2,7 @@ package miit.chuice.tour.security;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import miit.chuice.tour.controllers.UserController;
+import miit.chuice.tour.controllers.user.UserController;
 import miit.chuice.tour.security.bcrypt.BCrypt;
 import miit.chuice.tour.exceptions.NotCorrectCredentialsError;
 import miit.chuice.tour.models.Human;
@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class Login {

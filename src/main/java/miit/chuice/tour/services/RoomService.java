@@ -4,40 +4,32 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import miit.chuice.tour.models.Human;
 import miit.chuice.tour.models.Room;
+import miit.chuice.tour.models.RoomAvailable;
 import miit.chuice.tour.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Component
+@Service
 public class RoomService {
 
     private final RoomRepository repository;
+    private final RoomAvailableService availableService;
 
     @Autowired
-    public RoomService(RoomRepository repository) {
+    public RoomService(RoomRepository repository, RoomAvailableService availableService) {
         this.repository = repository;
+        this.availableService = availableService;
     }
 
-    public ObservableList<Room> findAllAvailableRoomsByHotelId(long hotelId) {
-        return FXCollections.observableList(repository.findAllByHotelIdAndLodgerIdIsNull(hotelId));
-    }
-
-    public ObservableList<Room> findAllRoomsByHotelId(long hotelId) {
-        return FXCollections.observableList(findAllByHotelId(hotelId));
-    }
-
-    public List<Room> findAllRoomsByLodgerId(long lodgerId) {
-        return repository.findAllByLodgerId(lodgerId);
+    public ObservableList<Room> findAllAvailableRoomsByHotelIdAndDate(long hotelId, LocalDate from, LocalDate to) {
+        return FXCollections.observableList(repository.findAllByHotelIdAndLodgerIdIsNullAndAvailableDatesBetweenFromAndTo(hotelId, from, to));
     }
 
     public Room findRoomById(long id){
-        return repository.findById(id).orElse(null);
-    }
-
-    public List<Room> findRoomsWithWaitingStatus() {
-        return repository.findAllByStatusAndLodgerIdIsNotNull(Room.Status.WAITING);
+        return repository.findById(id);
     }
 
     public List<Room> findAllByHotelId(long id) {
@@ -48,8 +40,8 @@ public class RoomService {
         repository.save(room);
     }
 
-    public void save(Room room, Human human) {
-        room.setLodger(human);
+    public void save(Room room, Human human, LocalDate checkIn, LocalDate departure) {
+        availableService.save(new RoomAvailable(room, human, checkIn, departure));
         repository.save(room);
     }
 

@@ -3,7 +3,8 @@ package miit.chuice.tour.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Fetch;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -16,7 +17,7 @@ public class Room {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
@@ -26,23 +27,18 @@ public class Room {
     @Column(name = "count_of_beds")
     private int countOfBeds;
 
-    @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "lodger_id")
-    private Human lodger;
-
     @Column(name = "cost")
     private int cost;
 
-    @Column(name = "status")
-    @Enumerated(value = EnumType.STRING)
-    private Status status;
+
+    @OneToMany(mappedBy = "room", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<RoomAvailable> availableDates;
 
     public Room(Hotel hotel, int number, int countOfBeds, int cost) {
         this.hotel = hotel;
         this.number = number;
         this.countOfBeds = countOfBeds;
         this.cost = cost;
-        this.status = Status.NOT_YET;
     }
 
     public Room() {
@@ -56,5 +52,4 @@ public class Room {
         PAID,
         WAITING
     }
-
 }

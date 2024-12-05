@@ -9,9 +9,9 @@ import miit.chuice.tour.models.Hotel;
 import miit.chuice.tour.repositories.HotelRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class HotelService {
 
     private final HotelRepository repository;

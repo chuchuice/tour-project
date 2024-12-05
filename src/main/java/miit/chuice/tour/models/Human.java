@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -38,8 +40,9 @@ public class Human {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(mappedBy = "lodger")
-    private Room room;
+    @OneToMany(mappedBy = "lodger", cascade = CascadeType.ALL)
+    private List<RoomAvailable> rooms;
+
 
     public Human(String name, String surname, String patronymic, String email, String login, String password) {
         this.name = name;

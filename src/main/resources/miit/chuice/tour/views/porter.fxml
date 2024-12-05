@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.PorterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.porter.PorterController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0">
             <image>
@@ -18,14 +18,16 @@
         </ImageView>
         <TableView fx:id="info" layoutX="14.0" layoutY="23.0" prefHeight="260.0" prefWidth="573.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="76.79998779296875" text="ID комнаты" />
-                <TableColumn fx:id="hotel" prefWidth="129.60003662109375" text="Отель" />
-                <TableColumn fx:id="number" prefWidth="128.0" text="Номер комнаты" />
-                <TableColumn fx:id="userId" minWidth="0.0" prefWidth="94.4000244140625" text="ID клиента" />
-            <TableColumn fx:id="status" prefWidth="142.39996337890625" text="Статус" />
+                <TableColumn fx:id="id" prefWidth="60.0" text="ID брони" />
+                <TableColumn fx:id="hotel" prefWidth="120.0" text="Отель" />
+                <TableColumn fx:id="number" prefWidth="65.60003662109375" text="Комната" />
+                <TableColumn fx:id="userId" minWidth="0.0" prefWidth="71.99993896484375" text="ID клиента" />
+                <TableColumn fx:id="status" prefWidth="75.99993896484375" text="Статус" />
+                <TableColumn fx:id="to" prefWidth="83.199951171875" text="Дата заезда" />
+                <TableColumn fx:id="from" prefWidth="113.60003662109375" text="Дата выезда" />
             </columns>
         </TableView>
-        <TextField fx:id="clientId" alignment="TOP_CENTER" layoutX="14.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID клиента">
+        <TextField fx:id="bookId" alignment="TOP_CENTER" layoutX="14.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID брони">
             <font>
                 <Font name="Microsoft JhengHei UI Light" size="12.0" />
             </font>

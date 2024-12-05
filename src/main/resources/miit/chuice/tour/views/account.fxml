@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.AccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miit.chuice.tour.controllers.user.AccountController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0">
             <image>
@@ -19,11 +19,13 @@
         </ImageView>
         <TableView fx:id="rooms" layoutX="14.0" layoutY="23.0" prefHeight="260.0" prefWidth="573.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="78" text="ID комнаты" />
-                <TableColumn fx:id="hotel" prefWidth="150" text="Отель" />
-                <TableColumn fx:id="number" prefWidth="106.4000244140625" text="Номер комнаты" />
-                <TableColumn fx:id="countOfBeds" minWidth="0.0" prefWidth="116.0" text="Число кроватей" />
-                <TableColumn fx:id="status" prefWidth="121.0" text="Статус" />
+                <TableColumn fx:id="id" prefWidth="60.0" text="ID брони" />
+                <TableColumn fx:id="hotel" prefWidth="115.20001220703125" text="Отель" />
+                <TableColumn fx:id="number" prefWidth="54.4000244140625" text="Комната" />
+                <TableColumn fx:id="countOfBeds" minWidth="0.0" prefWidth="101.5999755859375" text="Число кроватей" />
+                <TableColumn fx:id="status" prefWidth="78.39996337890625" text="Статус" />
+                <TableColumn fx:id="from" prefWidth="81" text="Дата заезда" />
+                <TableColumn fx:id="out" prefWidth="81" text="Дата выезда" />
             </columns>
         </TableView>
         <TextField fx:id="idToCancel" alignment="TOP_CENTER" layoutX="14.0" layoutY="298.0" prefHeight="23.0" prefWidth="178.0" promptText="ID комнаты">

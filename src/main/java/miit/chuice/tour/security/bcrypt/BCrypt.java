@@ -74,8 +74,7 @@ public class BCrypt extends BCryptData {
 	 * @throws IllegalArgumentException если максимальная длина выходных данных некорректна
 	 */
 
-	private static byte[] decodeBase64(String encodedString)
-			throws IllegalArgumentException {
+	private static byte[] decodeBase64(String encodedString) throws IllegalArgumentException {
 		StringBuilder result = new StringBuilder();
 		int offset = 0, stringLength = encodedString.length(), outputLength = 0;
 		byte[] output;

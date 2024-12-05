@@ -27,6 +27,7 @@ public class HelloApplication extends Application {
         CustomFXMLLoader customFXMLLoader = context.getBean(CustomFXMLLoader.class);
         Parent root = customFXMLLoader.load("/miit/chuice/tour/views/login.fxml");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 

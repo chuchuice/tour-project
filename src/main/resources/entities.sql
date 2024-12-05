@@ -42,3 +42,9 @@ INSERT INTO rooms(number, count_of_beds, lodger_id, hotel_id, cost) VALUES (302,
 INSERT INTO rooms(number, count_of_beds, lodger_id, hotel_id, cost) VALUES (500, 4, null, 1, 9000);
 INSERT INTO rooms(number, count_of_beds, lodger_id, hotel_id, cost) VALUES (501, 4, null, 1, 9000);
 INSERT INTO rooms(number, count_of_beds, lodger_id, hotel_id, cost) VALUES (502, 8, null, 1, 15000);
+
+CREATE TABLE room_availability (
+                                   id INT8 NOT NULL GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 1) PRIMARY KEY,
+                                   room_id INT8 NOT NULL REFERENCES rooms(id),
+                                   available_date DATE NOT NULL
+);

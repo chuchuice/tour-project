@@ -32,7 +32,7 @@ public class Hotel {
     @Column(name = "address")
     private String address;
 
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Room> rooms;
 
     public Hotel(String title, int stars, String country, String city, String address) {
