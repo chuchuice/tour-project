@@ -41,7 +41,7 @@ public class Human {
     private String password;
 
     @OneToMany(mappedBy = "lodger", cascade = CascadeType.ALL)
-    private List<RoomAvailable> rooms;
+    private List<RoomBooked> bookedRooms;
 
 
     public Human(String name, String surname, String patronymic, String email, String login, String password) {

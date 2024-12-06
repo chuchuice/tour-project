@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "room_availability")
-public class RoomAvailable {
+public class RoomBooked {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +38,7 @@ public class RoomAvailable {
     @Enumerated(value = EnumType.STRING)
     private Room.Status status;
 
-    public RoomAvailable(Room room, Human lodger, LocalDate checkIn, LocalDate departure) {
+    public RoomBooked(Room room, Human lodger, LocalDate checkIn, LocalDate departure) {
         this.room = room;
         this.lodger = lodger;
         this.checkIn = checkIn;
@@ -46,7 +46,7 @@ public class RoomAvailable {
         this.status = Room.Status.WAITING;
     }
 
-    public RoomAvailable() {
+    public RoomBooked() {
 
     }
 }

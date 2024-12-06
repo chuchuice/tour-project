@@ -6,10 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import miit.chuice.tour.models.Room;
-import miit.chuice.tour.models.RoomAvailable;
+import miit.chuice.tour.models.RoomBooked;
 import miit.chuice.tour.models.RoomDTO;
-import miit.chuice.tour.services.RoomAvailableService;
-import miit.chuice.tour.services.RoomService;
+import miit.chuice.tour.services.RoomBookedService;
 import miit.chuice.tour.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -43,10 +42,10 @@ public class AccountController implements Initializable {
     @FXML private Button reload;
 
     private final Utils utils;
-    private final RoomAvailableService service;
+    private final RoomBookedService service;
 
     @Autowired
-    public AccountController(Utils utils, RoomAvailableService service) {
+    public AccountController(Utils utils, RoomBookedService service) {
         this.utils = utils;
         this.service = service;
     }
@@ -85,7 +84,7 @@ public class AccountController implements Initializable {
             if (idToBuy.getText().isBlank()) {
                 makeAlert("Введите id комнаты", Alert.AlertType.ERROR);
             } else {
-                RoomAvailable room = service.findRoomById(Integer.parseInt(idToBuy.getText()));
+                RoomBooked room = service.findRoomById(Integer.parseInt(idToBuy.getText()));
                 if (!room.getStatus().equals(Room.Status.ACCEPTED)) {
                     makeAlert("Вы ещё не можете арендовать комнату!", Alert.AlertType.ERROR);
                 } else {

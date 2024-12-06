@@ -37,9 +37,6 @@ public class LoginController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println(loginButton);
-        System.out.println(signUpButton);
-
         loginButton.setOnAction(event -> {
             if (SecurityUtils.isPasswordAndLoginCorrect(password.getText(), login.getText())) {
                 loginLogic.login(event, login.getText(), password.getText());

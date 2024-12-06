@@ -63,7 +63,7 @@ public class AdminRoomsController implements Initializable {
                 if (room == null) {
                     makeAlert("Комнаты не существует", Alert.AlertType.ERROR);
                 } else {
-                    room.getAvailableDates().clear();
+                    room.getBookedDates().clear();
                     room.setHotel(null);
                     roomService.save(room);
                     makeAlert("Вы успешно удалили комнату", Alert.AlertType.INFORMATION);

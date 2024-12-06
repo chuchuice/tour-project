@@ -8,7 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import miit.chuice.tour.controllers.user.UserController;
 import miit.chuice.tour.models.Room;
 import miit.chuice.tour.models.RoomDTO;
-import miit.chuice.tour.services.RoomAvailableService;
+import miit.chuice.tour.services.RoomBookedService;
 import miit.chuice.tour.services.RoomService;
 import miit.chuice.tour.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +39,11 @@ public class PorterController implements Initializable {
     @FXML private Button reload;
 
     private final Utils utils;
-    private final RoomService roomService;
-    private final RoomAvailableService service;
+    private final RoomBookedService service;
 
     @Autowired
-    public PorterController(Utils utils, RoomService roomService, RoomAvailableService service) {
+    public PorterController(Utils utils, RoomBookedService service) {
         this.utils = utils;
-        this.roomService = roomService;
         this.service = service;
     }
 

@@ -43,9 +43,6 @@ public class SignUpController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println(loginButton);
-        System.out.println(signUpButton);
-
         signUpButton.setOnAction(event -> {
 
             if (!password.getText().equals(repeatPassword.getText())) {

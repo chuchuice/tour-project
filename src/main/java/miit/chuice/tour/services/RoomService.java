@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import miit.chuice.tour.models.Human;
 import miit.chuice.tour.models.Room;
-import miit.chuice.tour.models.RoomAvailable;
+import miit.chuice.tour.models.RoomBooked;
 import miit.chuice.tour.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ import java.util.List;
 public class RoomService {
 
     private final RoomRepository repository;
-    private final RoomAvailableService availableService;
+    private final RoomBookedService availableService;
 
     @Autowired
-    public RoomService(RoomRepository repository, RoomAvailableService availableService) {
+    public RoomService(RoomRepository repository, RoomBookedService availableService) {
         this.repository = repository;
         this.availableService = availableService;
     }
 
     public ObservableList<Room> findAllAvailableRoomsByHotelIdAndDate(long hotelId, LocalDate from, LocalDate to) {
-        return FXCollections.observableList(repository.findAllByHotelIdAndLodgerIdIsNullAndAvailableDatesBetweenFromAndTo(hotelId, from, to));
+        return FXCollections.observableList(repository.findAllByDate(hotelId, from, to));
     }
 
     public Room findRoomById(long id){
@@ -41,7 +41,7 @@ public class RoomService {
     }
 
     public void save(Room room, Human human, LocalDate checkIn, LocalDate departure) {
-        availableService.save(new RoomAvailable(room, human, checkIn, departure));
+        availableService.save(new RoomBooked(room, human, checkIn, departure));
         repository.save(room);
     }
 

@@ -32,7 +32,7 @@ public class Room {
 
 
     @OneToMany(mappedBy = "room", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<RoomAvailable> availableDates;
+    private List<RoomBooked> bookedDates;
 
     public Room(Hotel hotel, int number, int countOfBeds, int cost) {
         this.hotel = hotel;

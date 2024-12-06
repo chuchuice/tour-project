@@ -29,10 +29,6 @@ public class HotelService {
         return FXCollections.observableList(repository.findAll());
     }
 
-    public List<Hotel> findByTitle(String title) {
-        return repository.findByTitle(title);
-    }
-
     public void save(Hotel hotel) {
         repository.save(hotel);
     }

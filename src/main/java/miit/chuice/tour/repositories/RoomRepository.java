@@ -16,8 +16,8 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
     List<Room> findAllByHotelId(long hotelId);
 
     @Query("SELECT r FROM Room r WHERE r.hotel.id = :hotelId AND NOT EXISTS (" +
-            "SELECT 1 FROM RoomAvailable a WHERE a.room = r AND a.checkIn >= :from AND a.departure <= :to)")
-    List<Room> findAllByHotelIdAndLodgerIdIsNullAndAvailableDatesBetweenFromAndTo(
+            "SELECT 1 FROM RoomBooked a WHERE a.room = r AND a.checkIn >= :from AND a.departure <= :to)")
+    List<Room> findAllByDate(
             @Param(value = "hotelId") long hotelId,
             @Param(value = "from") LocalDate from,
             @Param(value = "to") LocalDate to
